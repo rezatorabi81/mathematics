@@ -1,0 +1,42 @@
+
+--creating database
+
+CREATE DATABASE mathdb;
+
+
+USE mathdb;
+
+-- Table structure for table `function`
+--
+
+CREATE TABLE IF NOT EXISTS `function` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) NOT NULL,
+  `inputs` int(11) NOT NULL,
+  `Jscript_path` varchar(1000) NOT NULL,
+  `PHP_path` varchar(1000) DEFAULT NULL,
+  `description` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+
+--
+-- Dumping data for table `function`
+--
+
+INSERT INTO `function` (`name`, `inputs`, `Jscript_path`, `PHP_path`, `description`) VALUES
+('Largest Prime Factor', 1, 'largestprimefactor.js', 'largestprimefactor.php', 'The greatest prime factor of an integer n is the largest prime number that divides the number. For example, the greatest prime factor of 44100 is 7 (all larger divisors of 44100 are composite). A prime number is its own greatest prime factor (as well as its own least prime factor). By convention, 1 is sometimes given as its own greatest prime factor. oeis.org'),
+('Smallest multiple Calculator', 2, 'smallestmultiple.js', 'smallestmultiple.php', 'This calculator is a dynamic solution to problem No.5 in: Projecteuler.net "2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?"'),
+('Largest palindrome product', 1, 'largestpalindrome.js', 'largestpalindrome.php', 'This calculator is a dynamic solution to problem No.4 in: Projecteuler.net "A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 x 99. Find the largest palindrome made from the product of two 3-digit numbers." ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `problem`
+--
+
+CREATE TABLE IF NOT EXISTS `problem` (
+  `problem_id` int(11) NOT NULL,
+  `test_number` varchar(256) NOT NULL,
+  `test_answer` varchar(256) NOT NULL,
+  `total_runs` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
